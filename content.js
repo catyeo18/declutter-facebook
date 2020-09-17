@@ -1,42 +1,20 @@
-// hide left navigation bar
-var nav_list = document.querySelectorAll('[role="navigation"]')
-for (i = 0; i < nav_list.length; i++) {
-  nav_list[i].style.display = "none"
+function hideComponent(selector) {
+  var component_list = document.querySelectorAll(selector)
+  for (i = 0; i < component_list.length; i++) {
+    component_list[i].style.display = "none"
+  }
 }
 
+/* MAIN TIMELINE */
+// hide left navigation bar
+hideComponent('[role="navigation"]')
 // hide top bar
-document.querySelector('[role="banner"]').style.display = "none"
-
+hideComponent('[role="banner"]')
 // hide right bar
-document.querySelector('[role="complementary"]').style.display = "none"
-
+hideComponent('[role="complementary"]')
 // hide stories
-document.querySelector('[aria-label="Stories"]').style.display = "none"
-
+hideComponent('[aria-label="Stories"]')
 // hide create a post
-document.querySelector('[aria-label="Create a post"]').style.display = "none"
-
+hideComponent('[aria-label="Create a post"]')
 // hide rooms
-document.querySelector('[data-pagelet="VideoChatHomeUnit"]').style.display = "none"
-
-
-// hide visible comments
-// var comments_list = document.querySelectorAll('[role="article"]')
-// var comments_list = document.querySelectorAll('[role="button"]')
-// for (i = 0; i < comments_list.length; i++) {
-//   comments_list[i].style.display = "none"
-// }
-
-// hide reacts
-// var reacts_list = document.querySelectorAll('[aria-label="See who reacted to this"]')
-// for (i = 0; i < reacts_list.length; i++) {
-//   reacts_list[i].style.display = "none"
-// }
-
-// hide chat bubbles on bottom right corner
-// var bubble_list = document.querySelectorAll('[aria-label="Open chat with name"]')
-// for (i = 0; i < bubble_list.length; i++) {
-//   bubble_list[i].style.display = "none"
-// }
-// // // hide new message button on bottom right corner
-// document.querySelector('[aria-label="New Message"]').style.display = "none"
+hideComponent('[data-pagelet="VideoChatHomeUnit"]')
