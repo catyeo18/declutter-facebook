@@ -9,6 +9,10 @@ function sendMsg(msg) {
   });
 }
 
+// Clear localStorage on refresh
+window.onload = window.localStorage.clear();
+
+// Toggle settings: change popup toggle, enabled/disabled, and localStorage toggle state
 document.addEventListener('DOMContentLoaded', function () {
   var state = localStorage.getItem("toggleState");
   if (state == "true") {

@@ -52,7 +52,7 @@ function clutter() {
   showComponent('[data-pagelet="VideoChatHomeUnit"]')
 }
 
-
+// Toggle settings and update page
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if (request.greeting == "switch2"){
