@@ -55,6 +55,7 @@ function clutter() {
 // Toggle settings and update page
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
+    // Main toggle
     if (request.greeting == "switch2"){
         declutter()
         console.log("Enabling Plugin");
@@ -63,4 +64,15 @@ chrome.runtime.onMessage.addListener(
         clutter()
         console.log("Disabling Plugin");
     }
+
+    // Features toggle
+    // if (request.greeting == "show_search"){
+    //   showComponent('[placeholder="Search Facebook"]')
+    //   console.log("Show search");
+    // }
+    // if (request.greeting == "hide_search"){
+    //   hideComponent('[placeholder="Search Facebook"]')
+    //   console.log("Hide search");
+    // }
+
   });
