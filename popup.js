@@ -1,20 +1,33 @@
-// Copyright (c) 2011 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+function sendMsg(msg) {
+  chrome.tabs.query({
+    active: true,
+    currentWindow: true
+  }, function (tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {
+      greeting: msg,
+    });
+  });
+}
 
-'use strict'
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello Vue!'
+document.addEventListener('DOMContentLoaded', function () {
+  var state = localStorage.getItem("toggleState");
+  if (state == "true") {
+    document.getElementById("switch").checked = true
+    document.getElementById("switchLabel").innerHTML = "Enabled"
+    console.log("toggled");
   }
+
+  var switchBtn = document.getElementById("switch")
+
+  switchBtn.addEventListener("click", function () {
+    if (document.getElementById("switch").checked) {
+      document.getElementById("switchLabel").innerHTML = "Disabled"
+      localStorage.setItem("toggleState", "false");
+      sendMsg("switch1")
+    } else {
+      document.getElementById("switchLabel").innerHTML = "Enabled"
+      localStorage.setItem("toggleState", "true");
+      sendMsg("switch2")
+    }
+  })
 })
-
-// function map() {
-//   chrome.storage.local.get(['address'], function(value){
-//     gclient_geocode(value.address);
-//   })
-// }
-
-// window.onload = map;

@@ -5,11 +5,17 @@
   "version": "1.0",
   "icons": { "128": "icon.png" },
   "description": "A Chrome extension to declutter the main Facebook feed to only show timeline posts.",
-
+  "browser_action": {
+    "default_name": "Declutter Facebook",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs", "storage"],
+  "content_security_policy": "script-src 'self' https://use.typekit.net; object-src 'self'",
   "content_scripts": [{
     "css": ["styles.css"],
     "js": ["content.js"],
-    "run_at": "document_end",
+    "run_at": "document_idle",
     "matches": ["https://www.facebook.com/*"]
   }]
 
